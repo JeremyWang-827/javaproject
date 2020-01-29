@@ -1,0 +1,76 @@
+import java.lang.Math;
+import java.util.Scanner;
+public class Hiclass
+{
+ //define a method to get a random number
+ static int Method(int a) {
+     int ab = (int)(Math.random() * (a + 1));
+     return ab;
+   }
+
+    public static void main(String[] args)
+    {
+        System.out.println("Welcome to Jeremy Wang's magic math trick!");
+        Scanner ScanA = new Scanner(System.in);
+        /*set difficulty with the first letter user writes
+        System.out.println("Easy mode, Hard mode?");
+        String user_diff = ScanA.nextLine();
+        char difficulty = user_diff.charAt(0);
+
+        //default chances
+        int chances;
+ System.out.println(“What's your difficulty Level, what's your number of guesses allowed?”)；
+ Scanner ScanB = new Scanner(System.in);
+ try{
+     chances = ScanB.nextLine();
+ }catch(Exception e){
+  e.getMessage();
+ }
+        
+ if (difficulty == 'e')
+        {
+         chances = 3;
+        
+        }
+        System.out.println("a random number from 0 to 12”);
+        int result = Method(11);
+        System.out.println("guess a ramdom integer");
+        
+        //guessing until out of chances
+        while (chances != 0)
+        {
+
+         int guess = ScanA.nextInt();
+         //if guess number is smaller than random number, retry
+            if (guess < result)
+            {
+
+                System.out.println("You Wrong! too small");
+                chances--;
+                System.out.println(chances + " times left");
+            }
+            //if guess number is bigger than random number, retry
+            else if (guess > result)
+            {
+
+                System.out.println("You Wrong! too large");
+                chances--;
+
+
+            //if guess number is same with random number, print win
+            else
+            {
+
+                System.out.println("Congrats! you win");
+                break;
+            }
+
+            //if user out of chances, print lost
+            if (chances == 0)
+            {
+
+             System.out.println("Ummm, sorry, you lost");
+            }
+        }
+    }
+}
