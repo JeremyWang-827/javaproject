@@ -1,0 +1,106 @@
+package dice2;
+
+//This is a utility tool class. I make this class and keep this class to be my demo
+public class Dices 
+{
+	
+	private Dice[] dices;
+	private int sum;
+	private int times;
+
+	/**
+	* @description: constructor (construct muti-dices)
+	* @param: [
+	* 	num: the number of dices
+	* 	size: size of each dices
+	* ]
+	*/  
+	Dices(int num, int sizes)
+	{
+		cleanTimes();
+		dices = new Dice[num];
+		for(int i = 0; i < dices.length; i++)
+		{
+			dices[i] = new Dice(sizes);
+		}
+		
+	}
+	
+	/**
+	* @description: Roll all of dices in the array
+	* @methodsName: roll
+	* @param:  
+	* @return: current sum number of all dices after roll
+	* @throws: 
+	*/
+	public int roll()
+	{
+		sum = 0;
+		for(int i = 0; i < dices.length; i++)
+		{
+			sum += dices[i].roll();
+		}
+		times++;
+		return sum;
+	}
+	
+	/**
+	* @description: Get the current sum of all of dices (use temp)
+	* @methodsName: getSum
+	* @param: 
+	* @return: current sum of all of dices in the array
+	* @throws: 
+	*/
+	public int getSum()
+	{
+		return sum;
+	}
+	
+	/**
+	* @description: Get the information of the array of dices
+	* @methodsName: toString
+	* @param: 
+	* @return: information
+	* @throws: 
+	*/
+	public String toString()
+	{
+		String str = "";
+		str += "Attempt " + times + ": ";
+		/*
+		for(int i = 0; i < dices.length; i++)
+		{
+			str += "Dice"+(i+1)+":"+dices[i].getNum()+"; ";
+		}
+		*/
+		str += "Sum:" + sum;
+		return str;
+	}
+	
+	/**
+	* @description: Get the attempt times of roll dices
+	* @methodsName: getTimes
+	* @param: 
+	* @return: attempt times of roll dices
+	* @throws: 
+	*/
+	public int getTimes()
+	{
+		return times;
+	}
+	
+	/**
+	* @description: Set the attempt times of roll dices to 0
+	* @methodsName: cleanTimes
+	* @param: 
+	* @return: 
+	* @throws: 
+	*/
+	public void cleanTimes()
+	{
+		times = 0;
+	}
+	
+
+	
+}
